@@ -9,8 +9,12 @@
 <body>
     {% block content %}
     <div class="row">
-        <div class="col-md-6">.col-sm-4</div>
-        <div class="col-md-6">.col-sm-4</div>
+        <div class="col-md-6">LEFT COLUMN</div>
+        <div class="col-md-6">
+            <form action='/event/add'>
+            <button type=submit > Add Event</button>
+            </form>
+        </div>
     </div>
 
     <form type='text'>
