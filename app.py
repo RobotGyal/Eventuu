@@ -3,6 +3,8 @@ import requests
 import os
 from random import random
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+
 
 app = Flask(__name__)
 
@@ -15,7 +17,7 @@ events = db.events
 def test():
     return render_template('index.html', msg='Hiiiii')
 
-# add event
+# add event page
 @app.route('/event/add')
 def event_add():
     return render_template('event_add.html')
@@ -27,8 +29,15 @@ def event_submit():
         'title': request.form.get('title'),
         'description': request.form.get('description')
     }
-    events.insert_one(event)
-    return redirect(url_for('event_view.html'))
+    event_id = events.insert_one(event).inserted_id
+    return redirect(url_for('event_view', event_id=event_id))
+
+# Route to VIEW ONE event
+@app.route('/event/<event_id>')
+def event_show(event_id):
+    """Show a one event"""
+    event = events.find_one({'_id': ObjectId(event_id)})
+    return render_template('event_view.html', event=event, events=events)
 
 
 
