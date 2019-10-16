@@ -24,8 +24,6 @@ def test():
 # def event_display():
 #     return render_template('index.html', events=events.find())
 
-
-
 # √
 # ADD A NEW EVENT
 @app.route('/event/add')
@@ -45,6 +43,32 @@ def event_detail():
     }
     event_id = events.insert_one(event).inserted_id
     return redirect(url_for('test', event_id=event_id))
+
+
+#Route for editing events
+@app.route('/event/<event_id>/edit')
+def event_edit(event_id):
+    """Show the edited event"""
+    event = events.find_one({'_id': ObjectId(event_id)})
+    return render_template('event_edit.html', event=event, title='Edit')
+
+
+#Route for updating cart
+@app.route('/event/<event_id>', methods=['POST'])
+def eevnt_update(event_id):
+    """Submit an edited playlist."""
+    updated_event = {
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+    }
+    events.update_one(
+        {'_id': ObjectId(event_id)},
+        {'$set': updated_event})
+    return redirect(url_for('test', event_id=event_id))
+
+
+
+
 
 
 
