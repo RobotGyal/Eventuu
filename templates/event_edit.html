@@ -5,10 +5,21 @@
 <fieldset>
     <legend>Edit Event</legend>
     <label for='Event-title'>Event Title</label><br>
-    <input type="text" name='title'><br><br>
+    <input type="text" name='title' value={{event.title}}><br><br>
+
     <label for='event-description'>Description</label><br>
-    <input type='text' name ='description'>
-    <br><br>
+    <input type='text' name ='description'><br><br>
+
+    <label for='event-date'>Event Date</label><br>
+    <input type='text' name ='date' value={{event.date}}><br><br>
+
+    <label for='event-s-time'>Start Time</label><br>
+    <input type='text' name ='s_time' value={{event.s_time}}><br><br>
+
+    <label for='event-e-time'>Ending Time</label><br>
+    <input type='text' name ='e_time' value={{event.e_time}}><br><br>
+
+    <!--submit button-->
     <input type='submit' name= 'description'>
 </fieldset>
 </form>

@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<h1>test</h1>
+<h1>VIEW EVENT</h1>
 {% endblock %}
 
 {% block content %}
 
 
-{% for item in events %}
-    <h3><a href='event/submit/{{item._id}}'> {{ item.title }}</a></h3>
-    <h4>{{ item.description }}</h4>
-{% endfor %}
+
+<h3>{{ event.title }}</h3>
+<h4>{{event.description }}</h4>
+
+{%endblock%}

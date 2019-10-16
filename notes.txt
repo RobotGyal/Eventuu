@@ -2,8 +2,9 @@
 ---------------------------
 * Add navbar √ 
 * Create 'sections' with bootstrap √
-* Uplaod a schedule (on right side) (CRUD) 
+* Uplaod a schedule (on right side) (CRUD) √
 * Event listing (on left) (in scrolling list?) √
+* Add blocks (of time)
 
 "SNIPPETS" -
 ---------------
@@ -13,3 +14,16 @@
         <h2>{{ event.title }}</h2>
         <small>{{ event.description }}</small>
     {% endfor %} -->
+
+"EVENT DETAILS"
+--------------------
+* title
+* event date
+* description
+* Start time
+* End time
+* Attendees
+
+"ADDITIONS / PERSONAL STRETCH"
+--------------------------------
+* 

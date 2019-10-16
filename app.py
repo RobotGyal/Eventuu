@@ -5,14 +5,18 @@ from random import random
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-
+# FRAMEWORK SETUP
 app = Flask(__name__)
-
-
 client = MongoClient()
 db=client.Eventuu  
+
+# DATABASES
 events = db.events
+time_blocks = db.time_blocks
+time_blocks.drop()
 events.drop()
+
+
 
 # √
 @app.route('/')
@@ -32,14 +36,15 @@ def event_add():
     return render_template('event_add.html')
 
 
-
-
 # VIEW A CREATED EVENT
 @app.route('/event/detail', methods=['POST'])
 def event_detail():
     event={
         'title': request.form.get('title'),
-        'description': request.form.get('description')
+        'description': request.form.get('description'),
+        'date':request.form.get('date'),
+        's_time':request.form.get('s_time'),
+        'e_time':request.form.get('e_time')
     }
     event_id = events.insert_one(event).inserted_id
     return redirect(url_for('home', event_id=event_id))
@@ -53,13 +58,16 @@ def event_edit(event_id):
     return render_template('event_edit.html', event=event, title='Edit')
 
 
-#Route for updating cart
+#Route for updating event details
 @app.route('/event/<event_id>', methods=['POST'])
 def eevnt_update(event_id):
     """Submit an edited playlist."""
     updated_event = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
+        'date':request.form.get('date'),
+        's_time':request.form.get('s_time'),
+        'e_time':request.form.get('e_time')
     }
     events.update_one(
         {'_id': ObjectId(event_id)},
@@ -69,15 +77,12 @@ def eevnt_update(event_id):
 
 
 
-
-
-
-# # Route to VIEW ONE event
-# @app.route('/event/detail/<event_id>')
-# def event_show_detail(event_id):
-#     """Show a one event"""
-#     event = events.find_one({'_id': ObjectId(event_id)})
-#     return render_template('index.html', event=event, events=events)
+# Route to VIEW ONE event
+@app.route('/event/detail/<event_id>')
+def event_show_detail(event_id):
+    """Show a one event"""
+    event = events.find_one({'_id': ObjectId(event_id)})
+    return render_template('event_view.html', event=event, events=events)
 
 
 
