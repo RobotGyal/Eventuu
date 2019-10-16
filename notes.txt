@@ -2,18 +2,10 @@
 ---------------------------
 * Add navbar √ 
 * Create 'sections' with bootstrap √
-* Uplaod a schedule (on right side) (CRUD) √
+* Uplaod a schedule (on right side) (CRUD) 
 * Event listing (on left) (in scrolling list?) √
-* Add blocks (of time)
-
-"SNIPPETS" -
----------------
-
-    <!-- <h1>EVENTS</h1>
-    {% for event in events %}
-        <h2>{{ event.title }}</h2>
-        <small>{{ event.description }}</small>
-    {% endfor %} -->
+* Add blocks (of time) like comments depending on click
+* Calendar API
 
 "EVENT DETAILS"
 --------------------
@@ -27,3 +19,18 @@
 "ADDITIONS / PERSONAL STRETCH"
 --------------------------------
 * 
+
+"BUGS"
+-------------------------------
+* change textbox size for text-block
+
+
+"SNIPPETS" -
+---------------
+
+    <!-- <h1>EVENTS</h1>
+    {% for event in events %}
+        <h2>{{ event.title }}</h2>
+        <small>{{ event.description }}</small>
+    {% endfor %} -->
+
