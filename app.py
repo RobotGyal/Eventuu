@@ -17,6 +17,12 @@ events = db.events
 def test():
     return render_template('index.html', msg='Hiiiii')
 
+# VIEWING cart homepage
+@app.route('/event')
+def event_display():
+    return render_template('index.html', events=events.find())
+
+
 # add event page
 @app.route('/event/add')
 def event_add():
