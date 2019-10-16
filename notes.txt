@@ -1,5 +1,15 @@
 "FEATURES" - in steps
+---------------------------
 * Add navbar √ 
 * Create 'sections' with bootstrap √
 * Uplaod a schedule (on right side) (CRUD) 
 * Event listing (on left) (in scrolling list?) 
+
+"SNIPPETS" -
+---------------
+
+    <!-- <h1>EVENTS</h1>
+    {% for event in events %}
+        <h2>{{ event.title }}</h2>
+        <small>{{ event.description }}</small>
+    {% endfor %} -->

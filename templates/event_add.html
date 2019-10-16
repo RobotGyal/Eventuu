@@ -6,13 +6,13 @@
 </title>
 
 {% block content %}
-<form method = "POST" action="/event/submit">
+<form method = "POST" action="/event/detail">
 <fieldset>
     <label for='Event-title'>Event Title</label><br>
-    <input type="text" name='title'>
-    <input type="submit" name ='title'><br><br>
+    <input type="text" name='title'><br><br>
     <label for='event-description'>Description</label><br>
     <input type='text' name ='description'>
+    <br><br>
     <input type='submit' name= 'description'>
 </fieldset>
 </form>

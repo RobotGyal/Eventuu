@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 <title>
     {% block title %}
     TITLE
@@ -10,16 +11,19 @@
     {% block content %}
     <div class="row">
         <div class="col-md-6">LEFT COLUMN</div>
+
         <div class="col-md-6">
             <form action='/event/add'>
             <button type=submit > Add Event</button>
             </form>
+
+            {% for event in events %}
+            <h3>{{ event.title }}</h3>
+            <h4>{{event.description }}</h4>
+            {% endfor%}
+            
         </div>
     </div>
 
-    <form type='text'>
-        Image link<input type="text" name="image_input">
-        <input type="submit" value='Submit'>
-    </form>
     {% endblock %}
 </body>
