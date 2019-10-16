@@ -1,4 +1,5 @@
 html{
+    color: blue
     }
 
 body{
@@ -17,3 +18,8 @@ body{
     border-style: dotted;
     border-color: red
 }
+
+/* title{
+    text-align: center;
+    color: blue
+} */

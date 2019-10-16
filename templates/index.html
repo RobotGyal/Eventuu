@@ -2,7 +2,7 @@
 
 <title>
     {% block title %}
-    TITLE
+    TOAST
     {% endblock %}
 </title>
 
@@ -10,18 +10,24 @@
 <body>
     {% block content %}
     <div class="row">
+        <!--left column-->
         <div class="col-md-6">LEFT COLUMN</div>
+        <!-- <div id="calendar"> {% include 'partials/calendar.html' %}</div> -->
 
+        <!--right column-->
         <div class="col-md-6">
             <form action='/event/add'>
             <button type=submit > Add Event</button>
             </form>
-
-            {% for event in events %}
-            <h3>{{ event.title }}</h3>
-            <h4>{{event.description }}</h4>
-            {% endfor%}
-            
+            <!--bootstrap list group to display all events-->
+                <ul class="list-group">
+                        {% for event in events %}
+                        <li class="list-group-item">
+                        <h3>{{ event.title }}</h3>
+                        <h4>{{event.description }}</h4>
+                        </li>
+                        {% endfor%}
+                </ul>
         </div>
     </div>
 

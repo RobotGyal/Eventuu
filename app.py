@@ -16,7 +16,7 @@ events.drop()
 
 # √
 @app.route('/')
-def test():
+def home():
     return render_template('index.html', msg='Hiiiii', events=events.find())
 
 # # VIEWING event homepage
@@ -44,7 +44,7 @@ def event_detail():
         'description': request.form.get('description')
     }
     event_id = events.insert_one(event).inserted_id
-    return redirect(url_for('test', event_id=event_id))
+    return redirect(url_for('home', event_id=event_id))
 
 
 
