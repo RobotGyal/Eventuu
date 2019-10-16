@@ -4,3 +4,18 @@
     TITLE
     {% endblock %}
 </title>
+
+
+<body>
+    {% block content %}
+    <div class="row">
+        <div class="col-md-6">.col-sm-4</div>
+        <div class="col-md-6">.col-sm-4</div>
+    </div>
+
+    <form type='text'>
+        Image link<input type="text" name="image_input">
+        <input type="submit" value='Submit'>
+    </form>
+    {% endblock %}
+</body>

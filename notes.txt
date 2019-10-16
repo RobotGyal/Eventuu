@@ -1,5 +1,5 @@
 "FEATURES" - in steps
-* Add navbaar
-* Create 'sections' with bootstrap
+* Add navbar √ 
+* Create 'sections' with bootstrap 
 * Uplaod a schedule (on right side)
 * Event listing (on left) (in scrolling list?)
