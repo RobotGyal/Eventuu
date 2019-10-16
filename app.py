@@ -64,7 +64,7 @@ def eevnt_update(event_id):
     events.update_one(
         {'_id': ObjectId(event_id)},
         {'$set': updated_event})
-    return redirect(url_for('test', event_id=event_id))
+    return redirect(url_for('home', event_id=event_id))
 
 
 
