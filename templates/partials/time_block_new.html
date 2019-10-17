@@ -1,4 +1,5 @@
-<form action='/event/time_block' method='post'>
+<form action='/event/detail/{{event._id}}' method='post'>
+    <input type='hidden' value='{{ event._id }}' name='event_id'/>
         <fieldset>
             {% if event %}
                 <input type='hidden' value='{{ event._id }}' name='event_id'/>

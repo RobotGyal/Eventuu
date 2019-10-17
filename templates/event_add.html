@@ -6,10 +6,10 @@
 </title>
 {% endblock %}
 
-<body>
+
 {% block content %}
 <form method = "POST" action="/event/detail">
-<fieldset>
+<fieldset class="event_add_form">
     <label for='Event-title'>Event Title</label><br>
     <input type="text" name='title'><br><br>
 
@@ -32,14 +32,4 @@
 </form>
 
 
-
-    {% include '/partials/time_block_new.html' %}
-    <hr>
-
-    <!-- Show Time Block -->
-    {% for block in time_blocks %}
-        {% include '/partials/time_block_show.html' %}
-    {% endfor %}
-
 {% endblock %}
-</body>

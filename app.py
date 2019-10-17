@@ -23,11 +23,6 @@ events.drop()
 def home():
     return render_template('index.html', msg='Hiiiii', events=events.find())
 
-# # VIEWING event homepage
-# @app.route('/event')
-# def event_display():
-#     return render_template('index.html', events=events.find())
-
 
 # EVENTS
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +79,7 @@ def event_show_detail(event_id):
     """Show a one event"""
     event = events.find_one({'_id': ObjectId(event_id)})
     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
-    return render_template('event_view.html', event=event, events=events, event_time_blocks=time_blocks)
+    return render_template('event_view.html', event=event, events=events, event_time_blocks=event_time_blocks)
 
 
 # TIME BLOCKS
@@ -98,7 +93,7 @@ def new_time_block():
     }
     print(time_block)
     time_block_id = time_blocks.insert_one(time_block).inserted_id
-    return redirect(url_for('event_show_detail', event_id=time_block_id))
+    return redirect(url_for('event_show_detail', time_block_id=time_block_id))
 
 
 if __name__ == "__main__":

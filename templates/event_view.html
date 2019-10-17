@@ -1,15 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}
-<h1>VIEW EVENT</h1>
-{% endblock %}
 
-{% block content %}
+    <title>
+        {% block title %}
+        <div class="event_show_title">
+        <h2><u><strong>{{ event.title }}</strong></u></h2>
+        </div>
+        {% endblock %}
+    </title>
+
+    <body> 
+        {% block content %}
+        <div class="event_show_body">
+        <h4>Date: {{event.date }}</h4>
+        <h4>Time : {{event.s_time }} until {{event.e_time }}</h4><hr>
+        <h4>{{event.description }}</h4><br><br>
 
 
+        {% include '/partials/time_block_new.html' %}
+        <hr>
 
-<h3>{{ event.title }}</h3>
-<h4>{{event.description }}</h4>
+        <!-- Show Time Block -->
+        {% for time_block in event_time_blocks %}
+            {% include '/partials/time_block_show.html' %}
+        {% endfor %}
 
-
-{%endblock%}
+        </div>
+        {% endblock %}
+    </body>    

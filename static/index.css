@@ -3,30 +3,46 @@ html{
     }
 
 body{
-    background-color:white;
+    background-color:rgba(251, 219, 198, 0.541);
 
 }
 
 nav{
     color: black;
     background-color: rgba(240, 144, 55, 0.78);
+    padding: 15px;
 }
 
-/* .col-md-6{
-    border-width: 2px;
-    border-style: dotted;
-    border-color: red
-}
-
-/* title{
-    text-align: center;
-    color: blue
-} */
-
-/* #block-title{
-    width:20%;
-} */
 
 .form-control{
     width:30%;
+}
+
+.event_add_form{
+    margin: 70px 170px;
+}
+
+div.event_show_title{
+    margin-top: 70px;
+    margin-left: 170px;
+}
+
+div.event_show_body{
+    margin-left:170px;
+}
+
+/*navbar title*/
+.navbar-brand{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3em;
+    color: black;
+}
+
+div.btn-group{
+    color: rebeccapurple;
+    background-color: olive;
+}
+
+.event_edit_form{
+    margin: 70px 170px;
 }

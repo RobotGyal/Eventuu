@@ -2,7 +2,6 @@
 
 <title>
     {% block title %}
-    TOAST
     {% endblock %}
 </title>
 
@@ -10,18 +9,15 @@
 <body>
     {% block content %}
     <div class="row">
-        <div class="col-md-6">LEFT COLUMN <br><br>
+        <!--LEFT COLUMN-->
+        <div class="col-md-6"> <br><br>
             <center>
             <img src='static/calendar.jpg' alt="Calendar" style="width:600px;height:500px;">
-        </center>
+            </center>
         </div>
 
         <!--right column-->
         <div class="col-md-6">
-            <form action='/event/add'>
-            <button type=submit > Add Event</button>
-            </form>
-
             <ul class="list-group">
             {% for event in events %}
             <li class="list-group-item">
