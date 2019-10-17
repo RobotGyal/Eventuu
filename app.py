@@ -13,8 +13,8 @@ db=client.Eventuu
 # DATABASES
 events = db.events
 time_blocks = db.time_blocks
-# time_blocks.drop()
-# events.drop()
+time_blocks.drop()
+events.drop()
 
 
 
