@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
+{% block title %}
 <title>
     Add Events
 </title>
+{% endblock %}
+
 
 {% block content %}
 <form method = "POST" action="/event/detail">
-<fieldset>
+<fieldset class="event_add_form">
     <label for='Event-title'>Event Title</label><br>
     <input type="text" name='title'><br><br>
 
@@ -24,6 +27,9 @@
 
     <!--submit button-->
     <input type='submit' name= 'description'>
+    <br><br>
 </fieldset>
 </form>
+
+
 {% endblock %}

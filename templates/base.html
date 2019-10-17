@@ -4,23 +4,14 @@
 <html lang=en>
 
     <!--bootstrap & css-->
+    <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/index.css">
-    <!--NAVBAR-->
-    <nav class="navbar navbar-primary">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="\"><strong>Eventuu</strong></a>
-        </div>
+    <!-- <link rel="stylesheet" href="../static/index.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    </head>
+<body>
 
-        <div class='pull-right'>
-
-        <div class="btn-group" role="group" aria-label="Basic example" >
-                <button type="button" class="btn btn-secondary">Left</button>
-                <button type="button" class="btn btn-secondary">Middle</button>
-                <button type="button" class="btn btn-secondary">Right</button>
-        </div>
-        </div>
-    </nav>
+        {% include '/partials/navbar.html' %}
 
 
 {% block title %}
@@ -29,5 +20,8 @@
 
 {% block content %}
 {% endblock %}
+</body>
+{% include '/partials/footer.html' %}
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
 </html>

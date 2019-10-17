@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class='event_edit_form'>
 <form method = "POST" action="/event/{{event._id}}">
 <fieldset>
     <legend>Edit Event</legend>
@@ -23,4 +24,7 @@
     <input type='submit' name= 'description'>
 </fieldset>
 </form>
+</div>
+
+
 {% endblock %}
