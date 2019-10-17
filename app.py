@@ -63,7 +63,7 @@ def event_edit(event_id):
 
 #Route for updating event details
 @app.route('/event/<event_id>', methods=['POST'])
-def eevnt_update(event_id):
+def event_update(event_id):
     """Submit an edited playlist."""
     updated_event = {
         'title': request.form.get('title'),
@@ -94,12 +94,11 @@ def event_show_detail(event_id):
 def new_time_block():
     time_block = {
         'title': request.form.get('block-title'),
-        'description': request.form.get('block-description'),
-        'event_id': ObjectId(request.form.get('event_id'))
+        'description': request.form.get('block-description')
     }
     print(time_block)
     time_block_id = time_blocks.insert_one(time_block).inserted_id
-    return redirect(url_for('event_view_detail', event_id=request.form.get('event_id')))
+    return redirect(url_for('event_show_detail', event_id=time_block_id))
 
 
 if __name__ == "__main__":

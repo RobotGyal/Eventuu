@@ -1,5 +1,8 @@
-<form action='/event/time_block_new' method='post'>
+<form action='/event/time_block' method='post'>
         <fieldset>
+            {% if event %}
+                <input type='hidden' value='{{ event._id }}' name='event_id'/>
+            {% endif %}
             <legend>Add a Block of Time</legend>
             <!-- TITLE -->
             <div class='form-group'>
@@ -27,3 +30,4 @@
             <button class='btn btn-primary' type='submit'>Save Time Block</button>
         </div>
     </form>
+

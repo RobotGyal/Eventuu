@@ -5,6 +5,7 @@
 * Uplaod a schedule (on right side) (CRUD) 
 * Event listing (on left) (in scrolling list?) √
 * Add blocks (of time) like comments depending on click
+     *need to be on event view page, not create page
 * Calendar API
 
 "EVENT DETAILS"
@@ -34,3 +35,8 @@
         <small>{{ event.description }}</small>
     {% endfor %} -->
 
+
+<input type='hidden' value='{{ event._id }}' name='event_id'/>
+
+
+<!-- {% include '/partials/time_block_new.html' %} -->

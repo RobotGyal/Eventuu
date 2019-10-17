@@ -27,14 +27,19 @@
 
     <!--submit button-->
     <input type='submit' name= 'description'>
-
-    <!--Time block-->
-    <p>Would you like to add a Time Block?</p><br>
-    <form action='/event/time_block'>
-        <button type=submit > Add Time Block</button>
-    </form>
-
+    <br><br>
 </fieldset>
 </form>
+
+
+
+    {% include '/partials/time_block_new.html' %}
+    <hr>
+
+    <!-- Show Time Block -->
+    {% for block in time_blocks %}
+        {% include '/partials/time_block_show.html' %}
+    {% endfor %}
+
 {% endblock %}
 </body>

@@ -11,9 +11,5 @@
 <h3>{{ event.title }}</h3>
 <h4>{{event.description }}</h4>
 
-    <!-- Show Comments -->
-    {% for time_block in time_blocks %}
-        {% include '../partials/time_block_show.html' %}
-    {% endfor %}
 
 {%endblock%}
