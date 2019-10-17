@@ -8,13 +8,13 @@ from bson.objectid import ObjectId
 # FRAMEWORK SETUP
 app = Flask(__name__)
 client = MongoClient()
-db=client.Eventuu  
+db=client.Eventuu 
 
 # DATABASES
 events = db.events
 time_blocks = db.time_blocks
-time_blocks.drop()
-events.drop()
+# time_blocks.drop()
+# events.drop()
 
 
 
@@ -79,21 +79,22 @@ def event_show_detail(event_id):
     """Show a one event"""
     event = events.find_one({'_id': ObjectId(event_id)})
     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
-    return render_template('event_view.html', event=event, events=events, event_time_blocks=event_time_blocks)
-
+    return render_template('event_view.html', event=event, time_blocks=event_time_blocks)
 
 # TIME BLOCKS
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-@app.route('/event/time_block', methods=['POST'])
-def new_time_block():
+@app.route('/event/time_blocks', methods=['POST'])
+def time_block_new():
     time_block = {
-        'title': request.form.get('block-title'),
-        'description': request.form.get('block-description')
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+        'event_id': ObjectId(request.form.get('event_id'))
     }
     print(time_block)
     time_block_id = time_blocks.insert_one(time_block).inserted_id
-    return redirect(url_for('event_show_detail', time_block_id=time_block_id))
+    print(time_block_id)
+    return redirect(url_for('event_show_detail', event_id=request.form.get('event_id')))
 
 
 if __name__ == "__main__":

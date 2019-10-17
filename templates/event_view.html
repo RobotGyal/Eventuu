@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+<!DOCTYPE html>
 
 
     <title>
@@ -16,15 +17,22 @@
         <h4>Time : {{event.s_time }} until {{event.e_time }}</h4><hr>
         <h4>{{event.description }}</h4><br><br>
 
-
+            <!-- for new time block  -->
         {% include '/partials/time_block_new.html' %}
+        <p> test of time_block_new</p>
         <hr>
 
-        <!-- Show Time Block -->
-        {% for time_block in event_time_blocks %}
+
+
+         <!-- print new time block -->
+        {% for time_block in time_blocks %}
+            <h2>test of printing time_block_SHOWS</h2>
             {% include '/partials/time_block_show.html' %}
+
         {% endfor %}
 
         </div>
+
+
         {% endblock %}
     </body>    

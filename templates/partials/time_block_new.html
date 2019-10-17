@@ -1,9 +1,6 @@
-<form action='/event/detail/{{event._id}}' method='post'>
+<form action='/event/time_blocks' method='post'>
     <input type='hidden' value='{{ event._id }}' name='event_id'/>
         <fieldset>
-            {% if event %}
-                <input type='hidden' value='{{ event._id }}' name='event_id'/>
-            {% endif %}
             <legend>Add a Block of Time</legend>
             <!-- TITLE -->
             <div class='form-group'>
@@ -11,7 +8,7 @@
                 <input class='form-control'
                     id='block-title'
                     type='text'
-                    name='block-title'
+                    name='title'
                     placeholder='Title'/>
             </div>
     
@@ -20,7 +17,7 @@
                 <label for='block-content'>Block Description</label><br>
                 <textarea class='form-control'
                     id='block-content'
-                    name='block-description'
+                    name='description'
                     rows='2'
                     placeholder=''></textarea>
             </div>

@@ -13,13 +13,13 @@ nav{
     padding: 15px;
 }
 
-
 .form-control{
     width:30%;
 }
 
 .event_add_form{
     margin: 70px 170px;
+    font-size: 1.2em;
 }
 
 div.event_show_title{
@@ -38,11 +38,35 @@ div.event_show_body{
     color: black;
 }
 
-div.btn-group{
-    color: rebeccapurple;
-    background-color: olive;
-}
+.btn{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.733);}
 
 .event_edit_form{
     margin: 70px 170px;
+    font-size: 1.2em;
+}
+
+.list-group-item{
+    border-color: rgba(248, 98, 72, 0.842);
+    background-color: rgba(255, 255, 255, 0.822);
+    border-width: 2px;
+    width: 85%;
+}
+
+
+footer{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.733);
+    padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+input{
+    border-radius: 25px;
 }

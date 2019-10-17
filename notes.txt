@@ -24,6 +24,7 @@
 "BUGS"
 -------------------------------
 * change textbox size for text-block
+* only displaying 1 word in pre-populated 'edit title'
 
 
 "SNIPPETS" -
@@ -40,3 +41,16 @@
 
 
 <!-- {% include '/partials/time_block_new.html' %} -->
+
+        <!-- Show Time Block -->
+        {% for time_block in time_blocks %}
+            {% include '/partials/time_block_show.html' %}
+        {% endfor %}
+
+
+
+# @app.route('/even/detail/<event_id>/<time_block_id')
+# def event_show_with_time_block(eventid, time_block_id):
+#     event = events.find_one({'_id': ObjectId(event_id)})
+#     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
+#     return render_template('event_view.html', event=event, time_blocks=event_time_blocks)
