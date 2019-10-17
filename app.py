@@ -7,7 +7,8 @@ from bson.objectid import ObjectId
 
 # FRAMEWORK SETUP
 app = Flask(__name__)
-client = MongoClient()
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Eventuu')
+client = MongoClient(host=f'{host}?retryWrites=false')
 db=client.Eventuu 
 
 # DATABASES
@@ -98,4 +99,4 @@ def time_block_new():
 
 
 if __name__ == "__main__":
-    app.run(Debug=True)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
