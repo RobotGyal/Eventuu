@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Eventuu')
 client = MongoClient(host=f'{host}?retryWrites=false')
-db=client.Eventuu 
+db=client.get_default_database()
 
 # DATABASES
 events = db.events
