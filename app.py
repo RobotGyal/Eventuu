@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 import os
+import requests
 from random import random
 from pymongo import MongoClient
 from bson.objectid import ObjectId
