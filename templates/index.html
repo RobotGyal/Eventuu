@@ -24,9 +24,6 @@
             <li class="list-group-item">
             <h3><a href='event/detail/{{event._id}}'>{{ event.title }}</a></h3>
             <h4>{{event.description }}</h4>
-            <p><form action='/event/{{event._id}}/edit'>
-                <button type='submit'>Edit</button>
-            </form></p>
             </li>
             <br>
             {% endfor%}

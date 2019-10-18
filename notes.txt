@@ -49,8 +49,20 @@
 
 
 
-# @app.route('/even/detail/<event_id>/<time_block_id')
-# def event_show_with_time_block(eventid, time_block_id):
-#     event = events.find_one({'_id': ObjectId(event_id)})
-#     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
-#     return render_template('event_view.html', event=event, time_blocks=event_time_blocks)
+ @app.route('/even/detail/<event_id>/<time_block_id')
+ def event_show_with_time_block(eventid, time_block_id):
+     event = events.find_one({'_id': ObjectId(event_id)})
+     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
+     return render_template('event_view.html', event=event, time_blocks=event_time_blocks)
+
+
+            <p><form action='/event/{{event._id}}/edit'>
+                <button class='btn btn-primary' type='submit'>Edit</button>
+            </form>
+            
+            </li>
+            <p><form method='POST' action='/event/{{event._id}}'>
+                <input type='hidden' name='_method' value='DELETE'>
+                <button class='btn btn-primary' type='submit'>Delete</button>
+            </form></p>
+            <br>

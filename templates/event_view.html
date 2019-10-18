@@ -17,6 +17,18 @@
         <h4>Time : {{event.s_time }} until {{event.e_time }}</h4><hr>
         <h4>{{event.description }}</h4><br><br>
 
+        <p><form action='/event/{{event._id}}/edit'>
+            <button class='btn btn-primary' type='submit'>Edit</button>
+        </form>
+        
+        </li>
+        <p><form method='POST' action='/event/{{event._id}}'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button class='btn btn-primary' type='submit'>Delete</button>
+        </form></p>
+        <br>
+
+        
          <!-- print new time block -->
          {% for time_block in time_blocks %}
          {% include '/partials/time_block_show.html' %}

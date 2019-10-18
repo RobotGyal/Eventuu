@@ -38,6 +38,7 @@ def event_add():
 # VIEW A CREATED EVENT
 @app.route('/event/detail', methods=['POST'])
 def event_detail():
+    '''shows a single created event on a homepage'''
     event={
         'title': request.form.get('title'),
         'description': request.form.get('description'),
@@ -60,7 +61,7 @@ def event_edit(event_id):
 #Route for updating event details
 @app.route('/event/<event_id>', methods=['POST'])
 def event_update(event_id):
-    """Submit an edited playlist."""
+    """For submitting a event once it's been edited"""
     updated_event = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
@@ -77,16 +78,24 @@ def event_update(event_id):
 # Route to VIEW ONE event
 @app.route('/event/detail/<event_id>')
 def event_show_detail(event_id):
-    """Show a one event"""
+    """Show one event"""
     event = events.find_one({'_id': ObjectId(event_id)})
     event_time_blocks = time_blocks.find({'event_id': ObjectId(event_id)})
     return render_template('event_view.html', event=event, time_blocks=event_time_blocks)
+
+# Route to delete an event
+@app.route('/event/<event_id>/delete', methods=['POST'])
+def event_delete(event_id):
+    """Delete one event"""
+    events.delete_one({'_id': ObjectId(event_id)})
+    return redirect(url_for('home'))
 
 # TIME BLOCKS
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 @app.route('/event/time_blocks', methods=['POST'])
 def time_block_new():
+    '''Create a new time block to be iterively added to event page'''
     time_block = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
