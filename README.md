@@ -13,7 +13,7 @@ My project is a site for helping with the organization, communication, and coord
 * Heroku
 
 ## Screenshots
-![Image](../static/homepage.png)
+![Image](/static/homepage.png)
 
 ## Features
 * Adding Events (also Editing and Deleting)
